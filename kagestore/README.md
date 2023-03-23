@@ -63,3 +63,9 @@ dev: npm start
 
 - Fontawesome
 - Google fonts
+- gradient tool: https://cssgradient.io/
+
+# Cleanup:
+
+- remove class hidden + remove testing-menu at:
+  Components - Nav - index.js

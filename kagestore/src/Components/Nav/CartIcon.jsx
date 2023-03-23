@@ -1,7 +1,7 @@
 const CartIcon = () => {
     return (
         <div>
-        <h2>Cart</h2>
+        <img src="/cart-shopping.png" alt="shopping cart icon" />
         </div>
     )
 };

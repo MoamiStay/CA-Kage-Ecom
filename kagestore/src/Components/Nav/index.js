@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
-import { Wrapper } from "./styles";
 import Searchbar from "./Searchbar";
 import CartIcon from "./CartIcon";
 
 const Nav = () => {
   return (
     <nav>
-      <Wrapper>
+      <div id="mobile-logo">
+        <img src="/Logo.png" alt="Logo" />
+      </div>
+      <div className="nav-bar">
         <Searchbar />
-        <div>
+        <div id="desktop-logo">
           <img src="/Logo.png" alt="Logo" />
         </div>
         <CartIcon />
-
-        <div>
+        <div className="hidden">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -35,7 +36,7 @@ const Nav = () => {
             </li>
           </ul>
         </div>
-      </Wrapper>
+      </div>
     </nav>
   );
 };

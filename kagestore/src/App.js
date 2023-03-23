@@ -6,20 +6,26 @@ import Cart from "./Pages/Cart";
 import Contact from "./Pages/Contact";
 import CheckoutSuccess from "./Pages/CheckoutSucccess";
 import MissingPage from "./Pages/MissingPage";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
-    <header>
-      <Nav />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="ProductDetails/" element={<ProductDetails />} />
-        <Route path="Cart/" element={<Cart />} />
-        <Route path="Contact/" element={<Contact />} />
-        <Route path="CheckoutSuccess/" element={<CheckoutSuccess />} />
-        <Route path="MissingPage/" element={<MissingPage />} />
-      </Routes>
-    </header>
+    <div className="main-container">
+      <header>
+        <Nav />
+      </header>
+      <main>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="ProductDetails/" element={<ProductDetails />} />
+          <Route path="Cart/" element={<Cart />} />
+          <Route path="Contact/" element={<Contact />} />
+          <Route path="CheckoutSuccess/" element={<CheckoutSuccess />} />
+          <Route path="MissingPage/" element={<MissingPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
