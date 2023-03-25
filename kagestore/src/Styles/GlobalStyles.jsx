@@ -45,7 +45,7 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(252,245,234,1) 10
     display: none;
 }
 
-ul, li, li > a, p, h1, h2, h3, h4 {
+ul, li, li > a, p, h1, h2, h3, h4, a {
     list-style-type: none;
     text-decoration: none;
     color: ${(props) => props.theme.color.primaryText};
@@ -54,6 +54,20 @@ ul, li, li > a, p, h1, h2, h3, h4 {
 h1, h2, h3, h4, p, button, input, a, li {
     font-family: 'Noto Serif JP', serif;
 };
+
+h1 {
+    margin: 0 auto 30px auto;
+    text-align: center;
+    font-size: 0.9rem;
+    display: inline-block;
+    padding: 0 10px;
+    border-bottom: 1px solid black;
+}
+
+.page-title {
+    display: flex;
+}
+
 
 .main-container {
     margin: auto;
@@ -76,6 +90,30 @@ input {
   padding: 2px 5px 2px 5px;
   border: solid 1px ${(props) => props.theme.color.primary};
   border-radius: 5px;
+}
+
+.product-container {
+    margin: auto;
+    display: grid;
+    gap: 20px;
+}
+
+button {
+    border: none;
+    background-color: ${(props) => props.theme.color.primary};
+    color: white;
+    padding: 5px 15px;
+    font-weight: 200;
+}
+
+.spinner {
+    margin: auto;
+    max-width: 5rem;
+    align-items: center;
+}
+
+.spinner > img {
+    max-width: 100%;
 }
 
 @media screen and (min-width: 320px) {
@@ -115,8 +153,13 @@ input {
 }
 
 main {
-    max-width: 85%;
+    max-width: 80%;
 }
+
+.product-container {
+    grid-template-columns: 1fr 1fr;
+}
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -129,6 +172,12 @@ main {
 main {
     max-width: 70%;
 }
+
+.product-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
 }
 
 `;

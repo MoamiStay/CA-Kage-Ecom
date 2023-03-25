@@ -1,5 +1,11 @@
 const CheckoutSuccess = () => {
-  return <h1>CheckoutSuccess</h1>;
+  return (
+    <>
+      <div className="page-title">
+        <h1>Checkout success</h1>
+      </div>
+    </>
+  );
 };
 
 export default CheckoutSuccess;

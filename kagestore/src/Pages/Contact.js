@@ -1,5 +1,11 @@
 const Contact = () => {
-  return <h1>Contact</h1>;
+  return (
+    <>
+      <div className="page-title">
+        <h1>Contact</h1>
+      </div>
+    </>
+  );
 };
 
 export default Contact;
