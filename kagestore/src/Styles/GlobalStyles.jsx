@@ -184,6 +184,15 @@ main {
 
 }
 
+@media screen and (min-width: 1800px) {
+
+.main-container {
+    max-width: 50%;
+    /* background-color: #4200b4; */
+}
+
+}
+
 `;
 
 export default GlobalStyle;

@@ -1,20 +1,25 @@
 import { useParams } from "react-router-dom";
 import useApi from "../Hooks/useApi";
+import { useDispatch, useSelector } from "react-redux";
 // import useLocalStorage from "../Hooks/useLocalStorage";
 import { ProductURL } from "../Utils/constants";
 import Rating from "../Components/ProductDetails/Rating";
 import Price from "../Components/Products/Price";
 import Form from "../Components/ProductDetails/Form";
+// import Reviews from "../Components/ProductDetails/Reviews";
 import {
   RatingContainer,
   Img,
   ImgContainer,
   CheckoutInfo,
 } from "../Components/ProductDetails/styles";
+import { addItem } from "../Redux/cartSlice";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const { data, isLoading, isError } = useApi(ProductURL + id);
+  const { items, total } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   if (isLoading) {
     return (
@@ -27,6 +32,17 @@ const ProductDetails = () => {
   if (isError) {
     return <h1>An error occured</h1>;
   }
+
+  const handleAdd = () => {
+    dispatch(
+      addItem({
+        index: data.id,
+        name: data.title,
+        price: data.discountedPrice,
+        amount: 1,
+      })
+    );
+  };
 
   return (
     <>
@@ -49,8 +65,13 @@ const ProductDetails = () => {
         <CheckoutInfo>
           <Price price={data.price} discountedPrice={data.discountedPrice} />
           <Form />
-          <button>Add to shopping bag</button>
+          <button onClick={handleAdd}>Add to shopping bag</button>
         </CheckoutInfo>
+      </section>
+      <section>
+        {/* {data.tags.map(({ item }) => {
+          <h2>{item.unsername}</h2>;
+        })} */}
       </section>
     </>
   );

@@ -6,27 +6,22 @@ const Rating = () => {
 const { id } = useParams();
 const { data } = useApi(ProductURL + id);
 
-const rating = data.rating;
+const rating = round(data.rating);
 
 switch (rating) {
-    case 5:
-    case 4.5: {
+    case 5: {
         return (<img src="/stars/stars5.svg" alt="" />);
     }
-    case 4:
-    case 3.5: {
+    case 4: {
         return (<img src="/stars/stars4.svg" alt="" />);
     }
-    case 3:
-    case 2.5: {
+    case 3: {
         return (<img src="/stars/stars3.svg" alt="" />);
     }
-    case 2:
-    case 1.5: {
+    case 2: {
         return (<img src="/stars/stars2.svg" alt="" />);
     }
-    case 1:
-    case 0.5: {
+    case 1: {
         return (<img src="/stars/stars1.svg" alt="" />);
     }
     case 0: {
@@ -36,5 +31,9 @@ switch (rating) {
         break;
 }
 };
+
+function round(num) {
+    return Math.round(num);
+}
 
 export default Rating;

@@ -3,6 +3,7 @@ import { Wrapper, Img, ImgContainer, InfoContainer, Title } from "./styles";
 import Price from "./Price";
 
 const Item = ({ item }) => {
+
     return (
         <div style={{marginBottom: "35px"}}>
             <Link to={`/ProductDetails/${item.id}`}>
@@ -23,7 +24,7 @@ const Item = ({ item }) => {
                 </Wrapper>
             </Link>
             <InfoContainer>
-            <button>Add to cart</button>
+            <button>View</button>
             </InfoContainer>
         </div>
     );

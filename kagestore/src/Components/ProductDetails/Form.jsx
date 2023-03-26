@@ -1,7 +1,7 @@
 const Form = () => {
     return (
             <form>
-              <label for="quantity">Quantity </label>
+              {/* <label for="quantity">Quantity </label> */}
               <select name="selectNumber" defaultValue={"1"}>
                 <option value="1">1</option>
                 <option value="2">2</option>
