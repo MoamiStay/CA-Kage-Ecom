@@ -64,6 +64,10 @@ h1 {
     border-bottom: 1px solid black;
 }
 
+h3 {
+    font-size: 1rem;
+}
+
 .page-title {
     display: flex;
 }
@@ -102,7 +106,7 @@ button {
     border: none;
     background-color: ${(props) => props.theme.color.primary};
     color: white;
-    padding: 5px 15px;
+    padding: 10px 20px;
     font-weight: 200;
 }
 

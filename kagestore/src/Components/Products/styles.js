@@ -21,3 +21,8 @@ export const InfoContainer = styled.div`
   align-items: center;
   text-align: center;
 `;
+
+export const Title = styled.h2`
+  font-size: 1rem;
+  line-height: 110%;
+`;

@@ -2,43 +2,54 @@ import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
 import CartIcon from "./CartIcon";
 
-const Nav = () => {
+const Header = () => {
   return (
-    <nav>
-      <div id="mobile-logo">
-        <img src="/Logo.png" alt="Logo" />
-      </div>
-      <div className="nav-bar">
-        <Searchbar />
-        <div id="desktop-logo">
-          <img src="/Logo.png" alt="Logo" />
+    <header>
+      <nav>
+        <Link to="/">
+          <div id="mobile-logo">
+            <img src="/Logo.png" alt="Logo" />
+          </div>
+        </Link>
+        <div className="nav-bar">
+          <Searchbar />
+
+          <Link to="/">
+            <div id="desktop-logo">
+              <img src="/Logo.png" alt="Logo" />
+            </div>
+          </Link>
+
+          <Link to="/Cart">
+            <CartIcon />
+          </Link>
+
+          <div className="hidden">
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/ProductDetails">ProductDetails</Link>
+              </li>
+              <li>
+                <Link to="/Cart">Cart</Link>
+              </li>
+              <li>
+                <Link to="/CheckoutSuccess">CheckoutSuccess</Link>
+              </li>
+              <li>
+                <Link to="/Contact">Contact</Link>
+              </li>
+              <li>
+                <Link to="/MissingPage">MissingPage</Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <CartIcon />
-        <div className="hidden">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/ProductDetails">ProductDetails</Link>
-            </li>
-            <li>
-              <Link to="/Cart">Cart</Link>
-            </li>
-            <li>
-              <Link to="/CheckoutSuccess">CheckoutSuccess</Link>
-            </li>
-            <li>
-              <Link to="/Contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/MissingPage">MissingPage</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 
-export default Nav;
+export default Header;

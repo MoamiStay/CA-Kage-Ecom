@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Wrapper, Img, ImgContainer, InfoContainer } from "./styles";
+import { Wrapper, Img, ImgContainer, InfoContainer, Title } from "./styles";
 import Price from "./Price";
 
 const Item = ({ item }) => {
@@ -14,15 +14,17 @@ const Item = ({ item }) => {
 
                     <InfoContainer>
                         <div>
-                            <h3>{item.title}</h3>
+                            <Title>{item.title}</Title>
                         </div>
                         <div>
                             {<Price price={item.price} discountedPrice={item.discountedPrice}/>}
                         </div>
-                        <button>Add to cart</button>
                     </InfoContainer>
                 </Wrapper>
             </Link>
+            <InfoContainer>
+            <button>Add to cart</button>
+            </InfoContainer>
         </div>
     );
 };
