@@ -1,12 +1,11 @@
 import { useParams } from "react-router-dom";
 import useApi from "../Hooks/useApi";
 import { useDispatch, useSelector } from "react-redux";
-// import useLocalStorage from "../Hooks/useLocalStorage";
 import { ProductURL } from "../Utils/constants";
 import Rating from "../Components/ProductDetails/Rating";
-import Price from "../Components/Products/Price";
 import Form from "../Components/ProductDetails/Form";
 // import Reviews from "../Components/ProductDetails/Reviews";
+import ProductPrice from "../Components/ProductDetails/ProductPrice";
 import {
   RatingContainer,
   Img,
@@ -14,11 +13,13 @@ import {
   CheckoutInfo,
 } from "../Components/ProductDetails/styles";
 import { addItem } from "../Redux/cartSlice";
+import useLocalStorage from "../Hooks/useLocalStorage";
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const [cartItems, setCartItem] = useLocalStorage("cartItems", []);
   const { data, isLoading, isError } = useApi(ProductURL + id);
-  const { items, total } = useSelector((state) => state.cart);
+  const { cartTracker } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   if (isLoading) {
@@ -33,15 +34,15 @@ const ProductDetails = () => {
     return <h1>An error occured</h1>;
   }
 
-  const handleAdd = () => {
+  const addToCart = (item) => {
+    setCartItem([...cartItems, item]);
     dispatch(
       addItem({
         index: data.id,
-        name: data.title,
-        price: data.discountedPrice,
-        amount: 1,
+        item: data,
       })
     );
+    console.log(cartTracker);
   };
 
   return (
@@ -63,9 +64,18 @@ const ProductDetails = () => {
         <p>{data.description}</p>
 
         <CheckoutInfo>
-          <Price price={data.price} discountedPrice={data.discountedPrice} />
+          <ProductPrice
+            ordinary={data.price}
+            discountedPrice={data.discountedPrice}
+          />
           <Form />
-          <button onClick={handleAdd}>Add to shopping bag</button>
+          <button
+            onClick={() => {
+              addToCart(data);
+            }}
+          >
+            Add to shopping bag
+          </button>
         </CheckoutInfo>
       </section>
       <section>

@@ -2,33 +2,48 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
+  cartTracker: 0,
   total: 0,
 };
 
 export const cartSlice = createSlice({
-  // The name of our reducer
   name: [],
-  // The initial state of our reducer
   initialState,
-  // These are the actions that will be made available
   reducers: {
     addItem: (state, action) => {
-      let isFound = state.items.some((item) => {
-        if (action.payload.index === item.index) {
-          return true;
-        }
-        return false;
-      });
+      state.items = action.payload.item;
+      // let isFound = action.payload.index === state.items.id;
+      let isFound = true;
+
+      // let isFound = state.items.some((item) => {
+      //   if (action.payload.index === item.index) {
+      //     return true;
+      //   }
+      //   return false;
+      // });
 
       if (isFound) {
-        let x = state.items.findIndex(
-          (item) => item.index === action.payload.index
-        );
-        state.items[x].amount += 1;
-        state.total = state.total + action.payload.price;
+        state.cartTracker += 1;
+        // let x = state.items.findIndex(
+        //   (item) => item.index === action.payload.index
+        // );
+
+        // state.items[x].amount += 1;
+        // state.items.push(action.payload.item);
+
+        // if (action.payload.discountedPrice !== action.payload.ordPrice) {
+        //   state.total =
+        //     action.payload.ordPrice - action.payload.discountedPrice;
+        // } else {
+        //   state.total = action.payload.discountedPrice;
+        // }
+
+        // state.total = action.payload.item.discountedPrice;
+        // state.image = action.payload.item.img;
       } else {
-        state.items.push(action.payload);
-        state.total = state.total + action.payload.price;
+        // state.items.push(action.payload);
+        // state.total = state.total + action.payload.price;
+        console.log("uuh what???");
       }
     },
     removeLast: (state) => {
