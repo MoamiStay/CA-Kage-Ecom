@@ -48,6 +48,9 @@ const ProductDetails = () => {
   return (
     <>
       <Back />
+      <div className="page-title">
+        <h1>Product</h1>
+      </div>
       <section>
         <ImgContainer>
           <Img src={data.imageUrl} alt={data.title} />
@@ -74,6 +77,7 @@ const ProductDetails = () => {
         </CheckoutInfo>
       </section>
       <section>
+        <h3>Reviews</h3>
         <Reviews />
       </section>
     </>
