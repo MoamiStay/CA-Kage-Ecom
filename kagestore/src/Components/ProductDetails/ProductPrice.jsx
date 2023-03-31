@@ -8,8 +8,8 @@ const ProductPrice = (props) => {
     if (ordinary !== discountedPrice) {
         return ( 
         <>
-            <Price price={ordinary} discountedPrice={discountedPrice} />
-            <p style={{color: "red", fontSize: "1.2rem", position: "relative", top: "-25px"}}>{`-${discount} kr`}</p>
+            <Price price={ordinary} discountedPrice={discountedPrice.toFixed(2)} />
+            <p style={{color: "red", fontSize: "1.2rem", position: "relative", top: "-25px"}}>{`-${discount.toFixed(2)} kr`}</p>
             </>
         )
     }

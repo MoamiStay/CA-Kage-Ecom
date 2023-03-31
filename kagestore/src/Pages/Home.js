@@ -1,10 +1,10 @@
 import useApi from "../Hooks/useApi";
 import { URL } from "../Utils/constants";
-import Item from "../Components/Products/Item";
+import ListProducts from "../Components/Products/ListProducts";
 
 const Home = () => {
   const { data, isLoading, isError } = useApi(URL);
-  console.log(data);
+  // console.log(data);
 
   if (isLoading) {
     return (
@@ -19,14 +19,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="page-title">
-        <h1>Products</h1>
-      </div>
-      <div className="product-container">
-        {data.map((item, idx) => {
-          return <Item key={idx} item={item} />;
-        })}
-      </div>
+      <ListProducts productList={data} />
     </>
   );
 };

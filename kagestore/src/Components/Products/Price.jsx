@@ -1,5 +1,3 @@
-
-
 const Price = ({price, discountedPrice}) => {
     if (price !== discountedPrice) {
     return (

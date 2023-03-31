@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
 import useApi from "../Hooks/useApi";
-import { useDispatch, useSelector } from "react-redux";
+import useLocalStorage from "../Hooks/useLocalStorage";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { ProductURL } from "../Utils/constants";
+import { addItem } from "../Redux/cartSlice";
+import Back from "../Components/ProductDetails/Back";
 import Rating from "../Components/ProductDetails/Rating";
-import Form from "../Components/ProductDetails/Form";
-// import Reviews from "../Components/ProductDetails/Reviews";
+import Reviews from "../Components/ProductDetails/Reviews";
 import ProductPrice from "../Components/ProductDetails/ProductPrice";
 import {
   RatingContainer,
@@ -12,14 +14,12 @@ import {
   ImgContainer,
   CheckoutInfo,
 } from "../Components/ProductDetails/styles";
-import { addItem } from "../Redux/cartSlice";
-import useLocalStorage from "../Hooks/useLocalStorage";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [cartItems, setCartItem] = useLocalStorage("cartItems", []);
+  const [cartCount, setCartCount] = useLocalStorage("cartCount", 0);
   const { data, isLoading, isError } = useApi(ProductURL + id);
-  const { cartTracker } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   if (isLoading) {
@@ -36,22 +36,18 @@ const ProductDetails = () => {
 
   const addToCart = (item) => {
     setCartItem([...cartItems, item]);
+    setCartCount([Number(cartCount) + 1]);
     dispatch(
       addItem({
         index: data.id,
         item: data,
       })
     );
-    console.log(cartTracker);
   };
 
   return (
     <>
-      <button>Back</button>
-      <div className="page-title">
-        <h1>Product</h1>
-      </div>
-
+      <Back />
       <section>
         <ImgContainer>
           <Img src={data.imageUrl} alt={data.title} />
@@ -68,7 +64,6 @@ const ProductDetails = () => {
             ordinary={data.price}
             discountedPrice={data.discountedPrice}
           />
-          <Form />
           <button
             onClick={() => {
               addToCart(data);
@@ -79,9 +74,7 @@ const ProductDetails = () => {
         </CheckoutInfo>
       </section>
       <section>
-        {/* {data.tags.map(({ item }) => {
-          <h2>{item.unsername}</h2>;
-        })} */}
+        <Reviews />
       </section>
     </>
   );

@@ -20,9 +20,7 @@ const Header = () => {
             </div>
           </Link>
 
-          <Link to="/Cart">
-            <CartIcon />
-          </Link>
+          <CartIcon />
 
           <div className="hidden">
             <ul>

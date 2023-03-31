@@ -27,3 +27,15 @@ export const CheckoutInfo = styled.div`
   margin: 20px 0;
   gap: 15px;
 `;
+
+export const ReviewContainer = styled.div`
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 20px;
+`;
+
+export const ReviewOverhead = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+`;

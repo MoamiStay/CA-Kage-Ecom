@@ -1,5 +1,3 @@
-
-
 const ItemDiscount = (props) => {
     const ordinary = props.ordinary;
     const discount = props.discount;

@@ -1,15 +1,20 @@
+import { Link } from "react-router-dom";
 import ItemDiscount from "../Components/Cart/ItemDiscount";
+import ClearStorage from "../Components/Cart/ClearStorage";
+import Total from "../Components/Cart/Total";
 import {
   Items,
   Item,
   Img,
   Section,
   ItemFraction,
-  Sum,
 } from "../Components/Cart/styles";
 
 const Cart = () => {
   const cartItems = JSON.parse(window.localStorage.getItem("cartItems"));
+  let total = 0;
+  let discount = 0;
+  let finalTotal = 0;
 
   return (
     <>
@@ -18,16 +23,15 @@ const Cart = () => {
       </div>
       <Section>
         <Items>
-          {cartItems.map((item) => {
+          {cartItems.map((item, idx) => {
+            total += item.price;
+            discount += item.discountedPrice;
             return (
-              <div key={item.id}>
+              <div key={item.id + idx}>
                 <Item>
                   <Img src={item.imageUrl} alt={item.title} />
                   <ItemFraction>
                     <p>{item.title}</p>
-                  </ItemFraction>
-                  <ItemFraction>
-                    <p>Quantity: </p>
                   </ItemFraction>
                   <ItemFraction>
                     <ItemDiscount
@@ -41,24 +45,15 @@ const Cart = () => {
           })}
         </Items>
 
-        <div>
-          <Sum>
-            <p>Total: </p>
-            <p>999</p>
-          </Sum>
-          <Sum>
-            <p>Discount: </p>
-            <p>999</p>
-          </Sum>
-          <Sum>
-            <p>TOTAL: </p>
-            <p>999</p>
-          </Sum>
-        </div>
+        <Total total={total} discount={discount} />
 
         <div>
-          <button>Back to shop</button>
-          <button>Proceed to checkout</button>
+          <button>
+            <Link to="/">Back to shop</Link>
+          </button>
+          <button onClick={ClearStorage}>
+            <Link to="/CheckoutSuccess">Proceed to checkout</Link>
+          </button>
         </div>
       </Section>
     </>
