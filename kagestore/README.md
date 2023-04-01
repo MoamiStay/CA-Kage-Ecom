@@ -3,7 +3,7 @@
 ![Kage Ecommerce](https://images.unsplash.com/photo-1586880244406-556ebe35f282?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80 "Kage Ecommerce")
 [Figma Prototype](https://www.figma.com/file/XAXrsCqGQJcvq5Ut2LHbBg/E-com-store---React-CA?node-id=1%3A4&t=HYWoymzXJ3qyrxIe-1 "Kage Ecommerce")
 
-# Hooks
+<!-- # Hooks
 
 - npx create-react-app kagestore
 - (npm install sass)
@@ -21,13 +21,13 @@ from react-router-dom: BrowserRouter, Routes, Route, Link, Outlet, useParams
 
 from react-hook-form: useForm
 
-from yup: yupResolver, \*
+from yup: yupResolver, \* -->
 
-# Css framework:
+<!-- # Css framework:
 
 - (Antd)
 
----
+--- -->
 
 # Setup
 
@@ -36,13 +36,16 @@ dev: npm start
 
 # Hosting
 
-[Visit deployed site here](https://woodz.netlify.app "Kage Ecommerce")
+[Visit deployed site here](https://kage-main.netlify.app "Kage Ecommerce")
 
 # Also note..
 
-# WCAG
+I did not have time to finsih the Searchbar filter since I had to deliiver the task two days in advance.  
+I also didn't fully finish the Forms (Validation works, but the errors are not displayed on the page. Styling is missing)
 
-# Criteria
+<!-- # WCAG -->
+
+<!-- # Criteria
 
 1. Well-structured and formatted code
 2. No errors in console
@@ -57,7 +60,7 @@ dev: npm start
 11. A checkout page
 12. A checkout succecss page
 13. A contact page with correct validation
-14. A shopping cart that can have products added to it
+14. A shopping cart that can have products added to it -->
 
 # Resources
 
@@ -65,7 +68,7 @@ dev: npm start
 - Google fonts
 - gradient tool: https://cssgradient.io/
 
-# Cleanup:
+<!-- # Cleanup:
 
 - remove class hidden + remove testing-menu at:
-  Components - Nav - index.js
+  Components - Nav - index.js -->

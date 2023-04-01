@@ -1,6 +1,16 @@
 import { useState } from "react";
+import { userSchema } from "../../Validation/ContactValidation";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+
 
 const Form = () => {
+    const { handleSubmit, register, formState: { errors }, } = useForm(
+    //     {
+    //     resolver: yupResolver(userSchema)
+    // }
+    );
+
 const [ firstname, setFirstname ] = useState("");
 const [ subject, setSubject ] = useState("");
 const [ email, setEmail ] = useState("");
@@ -9,76 +19,76 @@ const [ body, setBody ] = useState("");
 const onFirstnameChange = (event) => {
     setFirstname(event.target.value);
 }
-
-const onSubjectChange = (event) => {
+const onSubjectChange = (event) => { 
     setSubject(event.target.value);
 }
-
 const onEmailChange = (event) => {
     setEmail(event.target.value);
 }
-
 const onBodyChange = (event) => {
     setBody(event.target.value);
 }
 
 // // SUBMITTING FORM
-//
-// const onFormSubmit = (event) => {
-//     event.preventDefault();
-//     const body = {
-//         firstname,
-//         subject,
-//         email,
-//         body,
-//     };
-//     // Basic fetch example
-//     fetch('http://www.example.com', {
-//       method: 'POST',
-//       body: JSON.stringify(body),
-//     });
-// };
+const onFormSubmit = async (data) => {
+    // data.preventDefault();
+    let bodyContent = {
+        firstname,
+        subject,
+        email,
+        body
+    };
+    console.log(bodyContent);
+    const isValid = await userSchema.isValid(bodyContent);
+    console.log(isValid);
+    // Basic fetch example
+    // fetch('http://www.example.com', {
+    //   method: 'POST',
+    //   body: JSON.stringify(body),
+    // });
+};
+
+let errorMessage = "";
 
     return (
         <section>
         <div>
-        {/* <form onSubmit={onFormSubmit}> */}
-            <form>
+        <form onSubmit={handleSubmit(onFormSubmit)}>
                 <input 
+                   onChange={onFirstnameChange}
+                    type="text"
+                    name="firstName"
                     value={firstname} 
-                    placeholder="Subject" 
+                    placeholder="First name"
+                    register={{...register('firstname')}}
+                    // errorMessage={errors.firstName?.message}
+                />
+                <input 
                     onChange={onSubjectChange}
-                />
-                <input 
+                   type="text"
+                    name="subject"
                     value={subject} 
-                    placeholder="First name" 
-                    onChange={onFirstnameChange}
+                    placeholder="Subject" 
+                    register={{...register('subject')}}
+                    // errorMessage={errors.subject?.message}
                 />
                 <input 
+                    onChange={onEmailChange}
+                    type="text"
+                    name="email"
                     value={email} 
                     placeholder="Email address" 
-                    onChange={onEmailChange}
+                    register={{...register('email')}}
+                    // errorMessage={errors.email?.message}
                 />
                 <textarea
+                    onChange={onBodyChange}
+                    name="body"
                     value={body} 
                     placeholder="Tell us about your problem" 
-                    onChange={onBodyChange}
+                    register={{...register('body')}}
+                    // errorMessage={errors.body?.message}
                 />
-                
-   {/* REDUCING TEXT INPUTS TO A SINGLE FUNCTION */}
-
-    {/* function onTextInputChange(event) {
-    const value = event.target.value;
-    if (event.target.name === 'first-name') {
-      setFirstName(value);
-    }
-    if (event.target.name === 'last-name') {
-      setLastName(value);
-    }
-    if (event.target.name === 'city') {
-      setCity(value);
-    }
-  } */}
                 <button>Submit</button>
             </form>
         </div>
@@ -89,10 +99,3 @@ const onBodyChange = (event) => {
 export default Form;
 
 // YUP: https://github.com/jquense/yup/blob/master/README.md
-
-// FULL NAME (Minimum number of characters is 3, required)
-// SUBJECT (Minimum number of characters is 3, required)
-// EMAIL (Must be a valid email address, required)
-// BODY (Minimum number of characters is 3, required)
-
-// email regex: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
