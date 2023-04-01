@@ -3,7 +3,7 @@ import Item from "./Item";
 const ListProducts = (props) => {
 const productList = props.productList;
 
-
+// searchbar: 
 // if productList.item.title === input from searchbar -> return those products
 // else: 
 
@@ -22,3 +22,4 @@ const productList = props.productList;
 };
 
 export default ListProducts;
+
