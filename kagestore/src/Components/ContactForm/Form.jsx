@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { userSchema } from "../../Validation/ContactValidation";
-import { yupResolver } from "@hookform/resolvers/yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 
 
 const Form = () => {
-    const { handleSubmit, register, formState: { errors }, } = useForm(
+    const { handleSubmit, register, } = useForm( // formState: { errors },
     //     {
     //     resolver: yupResolver(userSchema)
     // }
@@ -47,8 +47,6 @@ const onFormSubmit = async (data) => {
     //   body: JSON.stringify(body),
     // });
 };
-
-let errorMessage = "";
 
     return (
         <section>

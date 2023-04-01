@@ -1,19 +1,19 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 
-const Searchbar = () => {
+// const Searchbar = () => {
 
-  const [ search, setSearch ] = useState("");
+//   const [ search, setSearch ] = useState("");
 
-  const onSearchChange = (event) => {
-    setSearch(event.target.value);
-  }
+//   const onSearchChange = (event) => {
+//     setSearch(event.target.value);
+//   }
 
-    return (
-        <div>
-            <input onChange={onSearchChange} type="text" name="name" placeholder="Search"/>
-        </div>
-    )
-};
+//     return (
+//         <div>
+//             <input onChange={onSearchChange} type="text" name="name" placeholder="Search"/>
+//         </div>
+//     )
+// };
 
-export default Searchbar;
+// export default Searchbar;
