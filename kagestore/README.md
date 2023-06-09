@@ -15,7 +15,7 @@
 
 # Setup
 Copy repo:  
-git@github.com:MoamiStay/CA-Kage-Ecom.git  
+git clone git@github.com:MoamiStay/CA-Kage-Ecom.git  
 
 npm i  
 npm start  
