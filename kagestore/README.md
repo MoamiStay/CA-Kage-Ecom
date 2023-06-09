@@ -1,10 +1,9 @@
 ## Kage - Noroff ecommerce store
 
-![Kage Ecommerce](https://images.unsplash.com/photo-1586880244406-556ebe35f282?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80 "Kage Ecommerce")
+![Kage Ecommerce](/kagestore/public/kage.png "Kage Ecommerce")
 [Figma Prototype](https://www.figma.com/file/XAXrsCqGQJcvq5Ut2LHbBg/E-com-store---React-CA?node-id=1%3A4&t=HYWoymzXJ3qyrxIe-1 "Kage Ecommerce")
 
 <!-- # Hooks
-
 - npx create-react-app kagestore
 - (npm install sass)
 - npm install styled-components
@@ -12,27 +11,17 @@
 - npm i react-router-dom
 - (npm i react-hook-form)
 - (npm i @hookform/resolvers yup)
-
-from react: useState, useEffect, useReducer, (createContext, useContext)
-
-from redux: configureStore, Provider, createSlice, useSelector, useDispatch
-
-from react-router-dom: BrowserRouter, Routes, Route, Link, Outlet, useParams
-
-from react-hook-form: useForm
-
-from yup: yupResolver, \* -->
-
-<!-- # Css framework:
-
-- (Antd)
-
 --- -->
 
 # Setup
+Copy repo:  
+git@github.com:MoamiStay/CA-Kage-Ecom.git  
 
-npm i
-dev: npm start
+npm i  
+npm start  
+
+# Built with
+React
 
 # Hosting
 
